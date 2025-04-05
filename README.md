@@ -4,13 +4,24 @@ Este projeto implementa um jogo simples de **bocha** (ou bocce) entre duas equip
 
 ---
 
+## 🔍 Descrição
+
+O jogo simula uma partida de bocha entre duas equipes. Primeiro, o bolim (bola-alvo) é posicionado aleatoriamente no campo. Em seguida, cada equipe lança duas bolas alternadamente. O jogador escolhe uma força para o arremesso, que determina a posição final da bola no eixo Y, com um leve desvio aleatório. A posição X é definida aleatoriamente. Após os quatro lançamentos, o programa calcula qual bola ficou mais próxima do bolim no eixo Y e atribui um ponto à equipe correspondente. O campo é exibido graficamente a cada jogada e o placar é mostrado ao final.
+
+
+---
+
 ## 🛠️ Como compilar
 
-Para compilar o jogo, utilize o GCC ou outro compilador C:
+Caso o executável fornecido não funcione.
+Para compilar o jogo, utilize o GCC ou outro compilador C, recomendo o "Online C Compiler" pela facilidade, ou:
 
 ```bash
-gcc main.c -o bocha
+gcc bocha.c -o bocha
+bocha.exe
 ```
+
+Isso depois de adicionar o MinGW nas variáveis de ambiente para ter o GCC.
 
 ---
 
@@ -18,7 +29,7 @@ gcc main.c -o bocha
 
 1. O bolim é posicionado aleatoriamente no campo (coordenadas X e Y).
 2. Cada equipe (vermelha e azul) tem **duas jogadas alternadas**.
-3. O jogador escolhe uma **força de lançamento** (inteiro).
+3. O jogador escolhe uma **força de lançamento** (inteiro), o valor 38 ou maior representa uma força potencial de atravessar o campo.
 4. A bola é lançada com base na força escolhida e um desvio aleatório.
 5. A cada jogada, o campo é atualizado e exibido com as bolas posicionadas.
 6. Após as 4 jogadas (2 por equipe), a bola mais próxima do bolim no eixo **Y** define a equipe vencedora.
@@ -67,7 +78,7 @@ Azul: 1 ponto(s)
 
 ## 📁 Estrutura do projeto
 
-- `main.c`: código principal do jogo com:
+- `bocha.c`: código principal do jogo com:
   - Definição de estruturas.
   - Geração de lançamentos aleatórios.
   - Impressão do campo.
@@ -79,7 +90,7 @@ Azul: 1 ponto(s)
 
 - O campo simula o eixo Y com escala de 3 em 3 para melhor visualização.
 - O desvio aleatório imita a imprecisão do lançamento.
-- Projeto didático, ideal para exercícios de lógica e manipulação de estruturas em C.
+
 
 ---
 

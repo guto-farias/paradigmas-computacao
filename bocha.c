@@ -15,18 +15,23 @@ typedef struct {
 } Ball;
 
 // Funções auxiliares
+
+//Posição do bolim no eixo X
 int defineBolimX() {
     return 1 + (rand() % LARGURA);
 }
 
+//Posição do bolim no eixo Y
 int defineBolimY() {
     return 3 * (1 + (rand() % ALTURA));
 }
 
+//O que define a posição da bola jogada no eixo X (jogador não tem controle)
 int throwBallX() {
     return 1 + (rand() % LARGURA);
 }
 
+//O que define a posição da bola jogada no eixo Y (jogador tem certo controle, mas não é totalmente determinístico)
 int throwBallY(int force){
     int base = force * 3;
     int desvio = (rand() % 11) - 5;  // variação entre -5 e +5
@@ -40,7 +45,7 @@ int throwBallY(int force){
 
 // Mostra informações da bola
 void showBall(Ball ball[], int i) {
-    printf("A bola %s, da equipe %i, está na posição [%i][%i].\n",
+    printf("A bola %s, da equipe %i, esta na posicao [%i][%i].\n",
            ball[i].id, ball[i].collor, ball[i].x, ball[i].y);
 }
 
@@ -116,22 +121,22 @@ int main() {
     bX = defineBolimX();
     bY = defineBolimY();
 
-    printf("Posição do bolim -> x: %i, y: %i\n", bX, bY);
+    printf("Posicao do bolim -> x: %i, y: %i\n", bX, bY);
     printf("----------------------------------------------------------------\n");
 
     for (i = 0; i < 2; i++) {
-        printf("\nVermelho: Escolha a força da jogada (ex: 38 é o máximo):\n");
+        printf("\nVermelho: Escolha a forca da jogada (ex: 38 eh o maximo):\n");
         scanf("%i", &force);
 
         ball[i * 2].x = throwBallX();
         ball[i * 2].y = throwBallY(force);
         ball[i * 2].collor = 1;
-        snprintf(ball[i * 2].id, sizeof(ball[i * 2].id), "R%d", contR++);
+        snprintf(ball[i * 2].id, sizeof(ball[i * 2].id), "V%d", contR++);
 
         showBall(ball, i * 2);
         exibirCampo(ball, i * 2 + 1, bX, bY);
 
-        printf("\nAzul: Escolha a força da jogada (ex: 38 é o máximo):\n");
+        printf("\nAzul: Escolha a forca da jogada (ex: 38 eh o maximo):\n");
         scanf("%i", &force);
 
         ball[i * 2 + 1].x = throwBallX();
